@@ -1,0 +1,24 @@
+﻿<Page
+    x:Class="MyUWPLib.FilePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MyUWPLib"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <StackPanel HorizontalAlignment="Center" Spacing="10" Padding="20" Width="692">
+
+        <TextBlock Text="File Testing on the Island" Style="{StaticResource TitleTextBlockStyle}" FontSize="35" HorizontalAlignment="Center" />
+
+
+        <TextBox Name="pathText" Header="Path" Text="Choose File Location"/>
+        <TextBox Name="fileText" Header="Text" Text="XD in Xaml Island Paradise"/>
+
+        <Button Content="Select Location" Click="Button_SelectFolder" />
+        <Button Content="Save File" Click="Button_SaveFile" />
+
+        <TextBlock Name="InfoMsg" FontStyle="Italic" Margin="0,15,0,0" TextWrapping="Wrap" FontFamily="Segoe UI"></TextBlock>
+    </StackPanel>
+</Page>

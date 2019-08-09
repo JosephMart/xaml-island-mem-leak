@@ -1,0 +1,29 @@
+﻿<Page
+    x:Class="MyUWPLib.RegistryPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MyUWPLib"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <StackPanel HorizontalAlignment="Center" Spacing="10" Padding="20" Width="692">
+
+        <TextBlock Text="Registry Testing on the Island" Style="{StaticResource TitleTextBlockStyle}" FontSize="35" HorizontalAlignment="Center" />
+
+        <TextBlock Text="Read From Registry" Style="{StaticResource SubtitleTextBlockStyle}" />
+        <TextBlock Name="regVal" />
+
+        <RichTextBlock IsTextSelectionEnabled="True" SelectionHighlightColor="Pink" FontFamily="Arial"  >
+            <Paragraph>
+                <Span FontWeight="SemiBold">
+                    <Run FontStyle="Italic">What is this testing?</Run>
+                </Span>
+            </Paragraph>
+            <Paragraph FontFamily="Arial">
+                <Run FontWeight="Light">This Example is reading a particular value from the registry by p/invoking RegOpenKeyEx from Advapi32.dll</Run>
+            </Paragraph>
+        </RichTextBlock>
+    </StackPanel>
+</Page>
