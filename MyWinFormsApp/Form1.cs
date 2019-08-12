@@ -13,19 +13,25 @@ namespace MyWinFormsApp
             this.windowsXamlHost1.InitialTypeName = "MyUWPLib.MainPage";
 
             this.isMainWindow = isMainWindow;
+            if (isMainWindow)
+                this.MemLeakTest();
         }
 
         bool isMainWindow;
 
-        protected override void OnLayout(LayoutEventArgs levent)
+        public async void MemLeakTest()
         {
-            base.OnLayout(levent);
+            int delay = 1000;
+            int iterations = 100;
 
-            if (this.windowsXamlHost1.Child == null)
-                return;
-
-            MyUWPLib.MainPage mainPage = (MyUWPLib.MainPage)this.windowsXamlHost1.Child;
-            mainPage.NewWinForm = NewWinForm;
+            for (int i = 0; i < iterations; ++i)
+            {
+                var form = new Form1();
+                form.Show();
+                await Task.Delay(delay);
+                form.Close();
+                GC.Collect();
+            }
         }
 
         public void NewWinForm()
