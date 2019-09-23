@@ -13,11 +13,24 @@ namespace MyWinFormsApp
             this.windowsXamlHost1.InitialTypeName = "MyUWPLib.MainPage";
 
             this.isMainWindow = isMainWindow;
-            if (isMainWindow)
-                this.MemLeakTest();
+            tonsMemory = new byte[1024 * 1024 * 100];
+            //if (isMainWindow)
+            //    this.MemLeakTest();
         }
 
         bool isMainWindow;
+        byte[] tonsMemory;
+
+        protected override void OnLayout(LayoutEventArgs levent)
+        {
+            base.OnLayout(levent);
+
+            // Set callback in XamlIsland to open new Form1
+            if (global::MyUWPLib.MainPage.NewWinForm == null)
+            {
+                global::MyUWPLib.MainPage.NewWinForm = NewWinForm;
+            }
+        }
 
         public async void MemLeakTest()
         {
@@ -34,7 +47,7 @@ namespace MyWinFormsApp
             }
         }
 
-        public void NewWinForm()
+        static public void NewWinForm()
         {
             Form1 form = new Form1();
             form.Show();

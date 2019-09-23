@@ -14,7 +14,7 @@ namespace MyUWPLib
 
         public delegate void FormHandler();
 
-        public FormHandler NewWinForm;
+        static public FormHandler NewWinForm;
 
         private void NavView_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
         {
